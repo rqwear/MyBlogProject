@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.87.0">
-    <title>Album example · Bootstrap v5.1</title>
+    <title>{{ post.post_title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
 
@@ -64,16 +64,13 @@
 </header>
 
  <main class="pt-5 p-3">
- <h1 >Posts</h1>
-     {% for post in posts.all %}
          <a href="{% url 'specific_post' post.id %}"><h3>{{ post.post_title}}</h3></a>
          <br/>
-         <img class="img-thumbnail" src="{{ post.post_image.url }}" height="50" width="200"/>
-         <p class="card-text">{{ post.get_summary }}</p>
+         <img class="img-thumbnail" src="{{ post.post_image.url }}"/>
+         <p class="card-text">{{ post.post_text }}</p>
          <p class="card-text">{{ post.post_date }}</p>
          <br/>
          <br/>
-     {% endfor %}
         <br/>
         <br/>
 </main>

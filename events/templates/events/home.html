@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,15 +48,15 @@
     <header>
 <nav class="navbar navbar-expand-lg navbar-light fst-italic" style="background-color: coral">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">My Awesome Blog</a>
+    <a class="navbar-brand" href="{% url 'home' %}">My Awesome Blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="#">Abouth Me</a>
-        <a class="nav-link" href="#">Facebook</a>
-        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="{% static 'text' %}">About Me</a>
+        <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/">Facebook</a>
+        <a class="nav-link" href="{% url 'showblog' %}">Blog</a>
     </div>
     </div>
   </div>
@@ -67,10 +68,10 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <p class="lead text-muted">Hey there! I'm excited to see you here! You can write me now!<p>
-          <a href="mailto:avatrx@gmail.com" class="btn btn-primary my-2">Mail me</a>
-
-        </p>
+            <p class="lead text-muted">Hey there! I'm excited to see you here! You can write me now!<p>
+                <a href="mailto:avatrx@gmail.com" class="btn btn-primary my-2">Mail me</a>
+            </p>
+          <img src="{% static 'conch_PNG18223.png' %}" height="300" width="300" class="img-fluid">
       </div>
     </div>
   </section>
@@ -82,7 +83,7 @@
           {% for event in events.all %}
           <div class="col">
           <div class="card shadow-sm">
-            <img class="img-thumbnail alt=" src="{{ event.event_image.url }}" />
+            <img class="img-thumbnail" src="{{ event.event_image.url }}" />
             <div class="card-body">
               <p class="card-text">{{ event.event_text }}</p>
             </div>
